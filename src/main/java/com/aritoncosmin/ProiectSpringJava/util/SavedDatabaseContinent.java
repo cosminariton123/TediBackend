@@ -1,12 +1,25 @@
 package com.aritoncosmin.ProiectSpringJava.util;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SavedDatabaseContinent {
-    private final List<SavedDatabaseData> savedDatabaseDataList = new ArrayList<>();
+    private String name;
 
-    public List<SavedDatabaseData> getSavedDatabaseDataList() {
-        return savedDatabaseDataList;
+    private final List<SavedDatabaseData> data = new ArrayList<>();
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<SavedDatabaseData> getData() {
+        return data;
     }
 }

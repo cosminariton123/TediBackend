@@ -8,9 +8,9 @@ public class Continent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    @Column(name = "name")
+    @Column(name = "name", unique = true)
     private String name;
 
     public Continent(String name) {
@@ -21,7 +21,7 @@ public class Continent {
 
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 

@@ -2,13 +2,20 @@ package com.aritoncosmin.ProiectSpringJava.dtos;
 
 public class PopulationAndGdpCard {
 
-    private final Integer population;
+    private final Long population;
 
-    private final Float gdp;
+    private final Double gdp;
 
-    public PopulationAndGdpCard(Integer population, Float gdp){
+    public PopulationAndGdpCard(Long population, Double gdp){
         this.population = population;
         this.gdp = gdp;
     }
 
+    public Long getPopulation() {
+        return population;
+    }
+
+    public Double getGdp() {
+        return gdp;
+    }
 }

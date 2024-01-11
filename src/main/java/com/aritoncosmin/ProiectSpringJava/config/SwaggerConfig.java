@@ -11,23 +11,23 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import static springfox.documentation.builders.PathSelectors.any;
 
-@Configuration
-@EnableSwagger2
-public class SwaggerConfig extends WebMvcConfigurationSupport {
-    @Bean
-    public Docket productApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.aritoncosmin.ProiectSpringJava.controller"))
-                .paths(any())
-                .build();
-
-    }
-    @Override
-    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("swagger-ui.html")
-                .addResourceLocations("classpath:/META-INF/resources/");
-        registry.addResourceHandler("/webjars/**")
-                .addResourceLocations("classpath:/META-INF/resources/webjars/");
-    }
-}
+//@Configuration
+//@EnableSwagger2
+//public class SwaggerConfig extends WebMvcConfigurationSupport {
+//    @Bean
+//    public Docket productApi() {
+//        return new Docket(DocumentationType.SWAGGER_2)
+//                .select()
+//                .apis(RequestHandlerSelectors.basePackage("com.aritoncosmin.ProiectSpringJava.controller"))
+//                .paths(any())
+//                .build();
+//
+//    }
+//    @Override
+//    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        registry.addResourceHandler("swagger-ui.html")
+//                .addResourceLocations("classpath:/META-INF/resources/");
+//        registry.addResourceHandler("/webjars/**")
+//                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+//    }
+//}

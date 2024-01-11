@@ -1,6 +1,6 @@
 package com.aritoncosmin.ProiectSpringJava.mappers;
 
-import com.aritoncosmin.ProiectSpringJava.dtos.DataCreate;
+import com.aritoncosmin.ProiectSpringJava.dtos.GdpPopulationYearDTO;
 import com.aritoncosmin.ProiectSpringJava.dtos.PopulationAndGdpCard;
 import com.aritoncosmin.ProiectSpringJava.model.Country;
 import com.aritoncosmin.ProiectSpringJava.model.CountryData;
@@ -23,19 +23,26 @@ public class CountryDataMapper {
         );
     }
 
-    public CountryData GdpPopulationYearCreate(DataCreate dataCreate, Country country) {
+    public CountryData GdpPopulationYearDTOToCountryData(GdpPopulationYearDTO gdpPopulationYearDTO, Country country) {
         return new CountryData(
-                dataCreate.getYear(),
-                dataCreate.getPopulation(),
-                dataCreate.getGDP(),
-                dataCreate.getCo2(),
-                dataCreate.getCo2_per_capita(),
-                dataCreate.getCo2_per_GDP(),
-                dataCreate.getShare_of_temperature_change_from_ghg(),
-                dataCreate.getTemperature_change_from_ch4(),
-                dataCreate.getTemperature_change_from_co2(),
-                dataCreate.getTemperature_change_from_ghg(),
-                dataCreate.getTemperature_change_from_n2o(),
+               gdpPopulationYearDTO.getYear(),
+                gdpPopulationYearDTO.getPopulation(),
+                gdpPopulationYearDTO.getGdp(),
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
                 country
         );
     }

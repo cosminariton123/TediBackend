@@ -5,9 +5,30 @@ import java.util.List;
 
 public class SavedDatabaseCountry {
 
-    private final List<SavedDatabaseData> savedDatabaseDataList = new ArrayList<>();
+    private String name;
 
-    public List<SavedDatabaseData> getSavedDatabaseDataList() {
-        return savedDatabaseDataList;
+    private String iso_code;
+
+    private final List<SavedDatabaseData> data = new ArrayList<>();
+
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setIso_code(String iso_code) {
+        this.iso_code = iso_code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getIso_code() {
+        return iso_code;
+    }
+
+    public List<SavedDatabaseData> getData() {
+        return data;
     }
 }
