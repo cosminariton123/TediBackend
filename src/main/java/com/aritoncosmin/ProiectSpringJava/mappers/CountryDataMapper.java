@@ -11,12 +11,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class CountryDataMapper {
 
-    CountryDataService countryDataService;
-
-    public CountryDataMapper(CountryDataService countryDataService) {
-        this.countryDataService = countryDataService;
-    }
-
     public PopulationAndGdpCard CountryDataToPopulationAndGdpCard(CountryData countryData){
         return new PopulationAndGdpCard(
                 countryData.getPopulation(),

@@ -111,8 +111,8 @@ public class CountryDataController {
 
 
     @GetMapping("/name/{name}/emissions")
-    public ResponseEntity<List<EmissionsCard>> getEmissionsDataByName(@PathVariable String name,
-                                                                         @RequestParam Long year){
+    public ResponseEntity<List<EmissionsCard>> getEmissionsByName(@PathVariable String name,
+                                                                  @RequestParam Long year){
         final Country country = countryService.findCountryByName(name);
         return getListEmissionCards(year, country);
 

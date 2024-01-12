@@ -126,6 +126,8 @@ public class ScriptsService {
                 ).flatMap(List::stream)
                 .collect(Collectors.toList());
 
+        continentDataRepository.saveAll(continentDataList);
+
     }
 
     private void destroyDatabase() {
