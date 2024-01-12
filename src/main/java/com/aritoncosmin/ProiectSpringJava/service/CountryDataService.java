@@ -1,12 +1,13 @@
 package com.aritoncosmin.ProiectSpringJava.service;
 
 import com.aritoncosmin.ProiectSpringJava.exceptions.BadRequest;
-import com.aritoncosmin.ProiectSpringJava.exceptions.InternalServerError;
 import com.aritoncosmin.ProiectSpringJava.exceptions.NotFoundException;
 import com.aritoncosmin.ProiectSpringJava.model.Country;
 import com.aritoncosmin.ProiectSpringJava.model.CountryData;
 import com.aritoncosmin.ProiectSpringJava.repository.CountryDataRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CountryDataService {
@@ -27,6 +28,10 @@ public class CountryDataService {
             throw new NotFoundException("The country has no data in year " + year);
 
         return countryData;
+    }
+
+    public List<CountryData> findAllByYearGreaterThanEqualAndCountry(Long year, Country country){
+        return countryDataRepository.findAllByYearGreaterThanEqualAndCountry(year, country);
     }
 
     public CountryData saveNew(CountryData countryData){

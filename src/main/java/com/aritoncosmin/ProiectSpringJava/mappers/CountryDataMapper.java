@@ -1,5 +1,6 @@
 package com.aritoncosmin.ProiectSpringJava.mappers;
 
+import com.aritoncosmin.ProiectSpringJava.dtos.EmissionsCard;
 import com.aritoncosmin.ProiectSpringJava.dtos.GdpPopulationYearDTO;
 import com.aritoncosmin.ProiectSpringJava.dtos.PopulationAndGdpCard;
 import com.aritoncosmin.ProiectSpringJava.model.Country;
@@ -44,6 +45,19 @@ public class CountryDataMapper {
                 null,
                 null,
                 country
+        );
+    }
+
+    public EmissionsCard CountryDataToEmissionsCard(CountryData countryData){
+        return new EmissionsCard(
+                countryData.getCo2(),
+                countryData.getCo2_per_capita(),
+                countryData.getCo2_per_gdp(),
+                countryData.getMethane(),
+                countryData.getMethane_per_capita(),
+                countryData.getNitrous_oxide(),
+                countryData.getNitrous_oxide_per_capita(),
+                countryData.getTotal_ghg()
         );
     }
 
