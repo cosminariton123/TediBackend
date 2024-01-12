@@ -34,7 +34,8 @@ public class CountryDataController {
     @GetMapping("/iso_code/{iso_code}/data/{year}")
     public ResponseEntity<PopulationAndGdpCard> retrievePopulationAndGdpByIsoCode(@PathVariable String iso_code,
                                                                                   @PathVariable Long year) {
-        final CountryData countryData = countryDataService.findCountryDataByYearAndCountryIso(year, iso_code);
+        final Country country = countryService.findCountryByIsoCode(iso_code);
+        final CountryData countryData = countryDataService.findCountryDataByYearAndCountry(year, country);
         final PopulationAndGdpCard populationAndGdpCard = countryDataMapper.CountryDataToPopulationAndGdpCard(countryData);
         return ResponseEntity.ok(populationAndGdpCard);
     }
@@ -58,10 +59,20 @@ public class CountryDataController {
         return  ResponseEntity.ok(savedCountryData);
     }
 
+    @DeleteMapping("/iso_code/{iso_code}/data/{year}")
+    public ResponseEntity<CountryData> deleteCountryDataByIsoCodeAndYear(@PathVariable String iso_code,
+                                                                         @PathVariable Long year){
+        final Country country = countryService.findCountryByIsoCode(iso_code);
+        final CountryData countryData = countryDataService.findCountryDataByYearAndCountry(year, country);
+        final CountryData deletedCountryData = countryDataService.delete(countryData);
+        return ResponseEntity.ok(deletedCountryData);
+    }
+
     @GetMapping("/name/{name}/data/{year}")
     public ResponseEntity<PopulationAndGdpCard> retrievePopulationAndGdpByName(@PathVariable String name,
                                                                          @PathVariable Long year) {
-        final CountryData countryData = countryDataService.findCountryDataByYearAndCountryName(year, name);
+        final Country country = countryService.findCountryByName(name);
+        final CountryData countryData = countryDataService.findCountryDataByYearAndCountry(year, country);
         final PopulationAndGdpCard populationAndGdpCard = countryDataMapper.CountryDataToPopulationAndGdpCard(countryData);
         return ResponseEntity.ok(populationAndGdpCard);
     }
@@ -82,6 +93,15 @@ public class CountryDataController {
         final CountryData countryData = countryDataMapper.GdpPopulationYearDTOToCountryData(gdpPopulationYearDTO, country);
         CountryData savedCountryData = countryDataService.savePopulationAndGdp(countryData);
         return ResponseEntity.ok(savedCountryData);
+    }
+
+    @DeleteMapping("/name/{name}/data/{year}")
+    public ResponseEntity<CountryData> deleteCountryDataByNameAndYear(@PathVariable String name,
+                                                                      @PathVariable Long year){
+        final Country country = countryService.findCountryByName(name);
+        final CountryData countryData = countryDataService.findCountryDataByYearAndCountry(year, country);
+        final CountryData deletedCountryData = countryDataService.delete(countryData);
+        return ResponseEntity.ok(deletedCountryData);
     }
 
 }

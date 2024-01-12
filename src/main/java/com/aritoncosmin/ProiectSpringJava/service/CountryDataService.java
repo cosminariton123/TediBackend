@@ -1,6 +1,7 @@
 package com.aritoncosmin.ProiectSpringJava.service;
 
 import com.aritoncosmin.ProiectSpringJava.exceptions.BadRequest;
+import com.aritoncosmin.ProiectSpringJava.exceptions.InternalServerError;
 import com.aritoncosmin.ProiectSpringJava.exceptions.NotFoundException;
 import com.aritoncosmin.ProiectSpringJava.model.Country;
 import com.aritoncosmin.ProiectSpringJava.model.CountryData;
@@ -19,24 +20,13 @@ public class CountryDataService {
         this.countryDataRepository = countryDataRepository;
     }
 
-    public CountryData findCountryDataByYearAndCountryName(Long year, String countryName){
-        final Country country = countryService.findCountryByName(countryName);
-        final CountryData data = countryDataRepository.findCountryDataByYearAndCountry(year, country);
+    public CountryData findCountryDataByYearAndCountry(Long year, Country country){
+        final CountryData countryData = countryDataRepository.findCountryDataByYearAndCountry(year, country);
 
-        if (data == null)
-            throw new NotFoundException("Data from year " + year + " and country with name " + country.getName() + " not found");
+        if (countryData == null)
+            throw new NotFoundException("The country has no data in year " + year);
 
-        return data;
-    }
-
-    public CountryData findCountryDataByYearAndCountryIso(Long year, String countryIso){
-        final Country country = countryService.findCountryByIsoCode(countryIso);
-        final CountryData data = countryDataRepository.findCountryDataByYearAndCountry(year, country);
-
-        if (data == null)
-            throw new NotFoundException("Data from year " + year + " and country with iso " + country.getIsoCode() + " not found");
-
-        return data;
+        return countryData;
     }
 
     public CountryData saveNew(CountryData countryData){
@@ -62,6 +52,11 @@ public class CountryDataService {
         alreadyExisting.setPopulation(countryData.getPopulation());
 
         return save(alreadyExisting);
+    }
+
+    public CountryData delete(CountryData countryData){
+        countryDataRepository.delete(countryData);
+        return countryData;
     }
 
 }
