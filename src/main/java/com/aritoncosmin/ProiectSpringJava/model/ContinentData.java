@@ -3,11 +3,14 @@ package com.aritoncosmin.ProiectSpringJava.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Continents_data")
+@Table(name = ContinentData.tableName)
 public class ContinentData extends Data{
 
+    public static final String tableName = "continents_data";
+    public static final String continentField = "continent_id";
+
     @OneToOne
-    @JoinColumn(name = "continent_id")
+    @JoinColumn(name = continentField)
     private Continent continent;
 
     public ContinentData() {

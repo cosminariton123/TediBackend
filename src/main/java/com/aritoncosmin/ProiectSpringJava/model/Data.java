@@ -5,62 +5,81 @@ import javax.persistence.*;
 @MappedSuperclass
 public abstract class Data {
 
+    public static final String yearField = "year";
+    public static final String populationField = "population";
+    public static final String gdpField = "gdp";
+    public static final String co2Field = "co2";
+    public static final String co2_per_capitaField = "co2_per_capita";
+    public static final String co2_per_gdpField = "co2_per_gdp";
+    public static final String energy_per_capitaField = "energy_per_capita";
+    public static final String energy_per_gdpField = "energy_per_gdp";
+    public static final String methaneField = "methane";
+    public static final String methane_per_capitaField = "methane_per_capita";
+    public static final String nitrous_oxideField = "nitrous_oxide";
+    public static final String nitrous_oxide_per_capitaField = "nitrous_oxide_per_capita";
+    public static final String share_of_temperature_change_from_ghgField = "share_of_temperature_change_from_ghg";
+    public static final String temperature_change_from_ch4Field = "temperature_change_from_ch4";
+    public static final String temperature_change_from_co2Field = "temperature_change_from_co2";
+    public static final String temperature_change_from_ghgField = "temperature_change_from_ghg";
+    public static final String temperature_change_from_n2oField = "temperature_change_from_n2o";
+    public static final String total_ghgField = "total_ghg";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "year")
+    @Column(name = Data.yearField)
     private Long year;
 
-    @Column(name = "population")
+    @Column(name = Data.populationField)
     private Long population;
 
-    @Column(name = "gdp")
+    @Column(name = Data.gdpField)
     private Double gdp;
 
-    @Column(name = "co2")
+    @Column(name = Data.co2Field)
     private Double co2;
 
-    @Column(name = "co2_per_capita")
+    @Column(name = Data.co2_per_capitaField)
     private Double co2_per_capita;
 
-    @Column(name = "co2_per_gdp")
+    @Column(name = Data.co2_per_gdpField)
     private Double co2_per_gdp;
 
-    @Column(name = "energy_per_capita")
+    @Column(name = Data.energy_per_capitaField)
     private Double energy_per_capita;
 
-    @Column(name = "energy_per_gdp")
+    @Column(name = Data.energy_per_gdpField)
     private Double energy_per_gdp;
 
-    @Column(name = "methane")
+    @Column(name = Data.methaneField)
     private Double methane;
 
-    @Column(name = "methane_per_capita")
+    @Column(name = Data.methane_per_capitaField)
     private Double methane_per_capita;
 
-    @Column(name = "nitrous_oxide")
+    @Column(name = Data.nitrous_oxideField)
     private Double nitrous_oxide;
 
-    @Column(name = "nitrous_oxide_per_capita")
+    @Column(name = Data.nitrous_oxide_per_capitaField)
     private Double nitrous_oxide_per_capita;
 
-    @Column(name = "share_of_temperature_change_from_ghg")
+    @Column(name = Data.share_of_temperature_change_from_ghgField)
     private Double share_of_temperature_change_from_ghg;
 
-    @Column(name = "temperature_change_from_ch4")
+    @Column(name = Data.temperature_change_from_ch4Field)
     private Double temperature_change_from_ch4;
 
-    @Column(name = "temperature_change_from_co2")
+    @Column(name = Data.temperature_change_from_co2Field)
     private Double temperature_change_from_co2;
 
-    @Column(name = "temperature_change_from_ghg")
+    @Column(name = Data.temperature_change_from_ghgField)
     private Double temperature_change_from_ghg;
 
-    @Column(name = "temperature_change_from_n2o")
+    @Column(name = Data.temperature_change_from_n2oField)
     private Double temperature_change_from_n2o;
 
-    @Column(name = "total_ghg")
+    @Column(name = Data.total_ghgField)
     private Double total_ghg;
 
     public Data() {

@@ -3,11 +3,14 @@ package com.aritoncosmin.ProiectSpringJava.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Countries_data")
+@Table(name = CountryData.tableName)
 public class CountryData extends Data{
 
+    public static final String tableName = "countries_data";
+    public static final String countryField = "country_id";
+
     @OneToOne
-    @JoinColumn(name = "country_id")
+    @JoinColumn(name = CountryData.countryField)
     private Country country;
 
     public CountryData() {

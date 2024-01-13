@@ -5,6 +5,7 @@ import com.aritoncosmin.ProiectSpringJava.model.Continent;
 import com.aritoncosmin.ProiectSpringJava.model.ContinentData;
 import com.aritoncosmin.ProiectSpringJava.repository.ContinentDataRepository;
 import com.aritoncosmin.ProiectSpringJava.repository.ContinentRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,7 +32,7 @@ public class ContinentDataService {
     }
 
     public List<ContinentData> findAllByYearGreaterThanEqualAndContinent(Long year, Continent continent) {
-        return continentDataRepository.findAllByYearGreaterThanEqualAndContinent(year, continent);
+        return continentDataRepository.findAllByYearGreaterThanEqualAndContinent(year, continent, Sort.by(Sort.Direction.ASC, ContinentData.yearField));
     }
 
 }
